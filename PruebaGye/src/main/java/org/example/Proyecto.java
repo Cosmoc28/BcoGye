@@ -1,24 +1,8 @@
 package org.example;
-
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.parser.PdfTextExtractor;
-import io.appium.java_client.windows.WindowsDriver;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.Scanner;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class Proyecto {
     public Proyecto() {
@@ -36,22 +20,30 @@ public class Proyecto {
         int opcion = scanner.nextInt();
 
 
-        switch (opcion) {
+        do {
+        System.out.println("Ingresar la opción (1-5): ");
+        opcion = scanner.nextInt();
 
+        switch (opcion) {
             case 1:
                 Registro(driver);
+                break;
             case 2:
                 Llenarregistro(driver);
-
+                break;
             case 3:
                 Logueo(driver);
+                break;
             case 4:
                 Transferencia(driver);
-            case 5:
                 break;
-
-
+            case 5:
+                System.out.println("Saliendo del programa...");
+                break;
+            default:
+                System.out.println("Opción inválida. Por favor, ingrese un número entre 1 y 5.");
         }
+    } while (opcion != 5);
 
 
 
@@ -150,6 +142,8 @@ public class Proyecto {
 
     }
 }
+
+
 
 
 
